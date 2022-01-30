@@ -1,0 +1,29 @@
+.navigation {
+  background-color: $color-1;
+  margin: 0;
+  display: flex;
+
+  a {
+    padding: 20px;
+    position: relative;
+  }
+
+  .nav {
+    &:hover::after {
+      width: 100%;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 3px;
+      background: $color-5;
+      transition: 0.25s;
+    }
+  }
+
+  .active-nav {
+    background: $color-5;
+    font-weight: bold;
+  }
+}
