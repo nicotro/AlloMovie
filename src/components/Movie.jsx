@@ -18,6 +18,7 @@ class Movie extends Component {
           <li onClick={this.handleClick} id={movieCard.id}>
             details
           </li>
+          <li>Add to favorites</li>
         </div>
       </ul>
     );
