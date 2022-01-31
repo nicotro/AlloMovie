@@ -45,10 +45,30 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  font-weight: bold;
+  stroke: $color-3;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.popup .favorite-btn {
-  margin-top: 10px;
-  font-weight: bold;
+.popup .favorite-btn-on {
+  margin-top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+  svg {
+    fill: rgb(172, 23, 43);
+    vertical-align: middle;
+  }
+}
+
+.popup .favorite-btn-off {
+  margin-top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+  svg {
+    fill: $color-3;
+    vertical-align: middle;
+  }
 }
