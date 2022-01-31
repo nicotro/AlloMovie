@@ -36,10 +36,9 @@ function Movie(props) {
 
       <MovieDetails trigger={detailPopup} setTrigger={setDetailPopup}>
         <h3>{props.movieCard.title}</h3>
-        <h4>
-          {props.movieCard.release_date} - Rating {props.movieCard.vote_average}{" "}
-          ({props.movieCard.vote_count})
-        </h4>
+        <span>{props.movieCard.release_date}</span>
+        <span>Rating {props.movieCard.vote_average}</span>
+        <span>Votes {props.movieCard.vote_count}</span>
         <p>{props.movieCard.overview}</p>
       </MovieDetails>
     </div>

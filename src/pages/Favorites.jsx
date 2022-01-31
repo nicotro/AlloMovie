@@ -1,12 +1,12 @@
-import Logo from "../components/HeaderLogo";
+import Logo from "../components/Header";
 import Navigation from "../components/Navigation";
 
 const Details = () => {
   return (
-    <div>
+    <div className="body">
       <Logo />
       <Navigation />
-      <h1>Favorites</h1>
+      <h1 className="movie-list-title">Favorites</h1>
       <h3>Favorite movies selection goes here</h3>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
@@ -14,15 +14,6 @@ const Details = () => {
         corrupti maxime, dolor enim excepturi necessitatibus culpa sapiente
         molestiae?
       </p>
-      <ul>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <br />
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <br />
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-        <br />
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-      </ul>
     </div>
   );
 };
