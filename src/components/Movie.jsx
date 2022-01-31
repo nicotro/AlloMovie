@@ -12,11 +12,22 @@ function Movie(props) {
         alt={props.title}
       />
       <div className="basic-info">
-        <li>{props.movieCard.title}</li>
-        <li>{props.movieCard.release_date}</li>
         <li>
-          Rating: {props.movieCard.vote_average} ({props.movieCard.vote_count})
+          <h1>{props.movieCard.title}</h1>
         </li>
+        <li>
+          <h2>
+            <h2-title>Release: </h2-title>
+            {props.movieCard.release_date}
+          </h2>
+        </li>
+        <li>
+          <h2>
+            <h2-title>Rating: </h2-title>
+            {props.movieCard.vote_average} ({props.movieCard.vote_count})
+          </h2>
+        </li>
+        <br />
         <li className="li-link" onClick={() => setDetailPopup(true)}>
           details
         </li>

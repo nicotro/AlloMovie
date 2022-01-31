@@ -1,15 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-
+@font-face {
+  font-family: "Roboto";
+  src: url(./../assets/Roboto-Regular.ttf);
+}
 $font-1: "Roboto", sans-serif;
 
-$color-1: #fb6161;
-$color-2: #f7f7f7;
-$color-3: #2a2a29;
+$color-1: #f0ba0a;
+$color-2: #e9e9e9;
+$color-3: #202947;
 $color-4: #202020;
-$color-5: #c74242;
+$color-5: #ecad00;
 
 body {
-  margin: 0.4rem auto;
+  margin: 0;
   font-family: $font-1;
   color: $color-3;
   background-color: $color-2;
@@ -26,7 +28,7 @@ li {
 
 a {
   text-decoration: none;
-  color: $color-3;
+  color: $color-4;
   cursor: pointer;
 }
 
