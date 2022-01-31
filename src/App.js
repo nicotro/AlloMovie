@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Details from "./pages/Details";
+import Favorites from "./pages/Favorites";
 import NotFound from "./pages/404NotFound";
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/Favorites" exact component={Details} />
+        <Route path="/Favorites" exact component={Favorites} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
