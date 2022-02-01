@@ -3,22 +3,18 @@ import Search from "../components/Search";
 
 const Navigation = () => {
   return (
-    <div className="navigation">
-      <NavLink exact to="/" className="nav" activeClassName="active-nav">
+    <div class="topnav">
+      <NavLink exact to="/" className="nav" activeClassName="active">
         Home
       </NavLink>
-      <NavLink
-        exact
-        to="/Favorites"
-        className="nav"
-        activeClassName="active-nav"
-      >
+
+      <NavLink exact to="/Favorites" className="nav" activeClassName="active">
         Favorites
       </NavLink>
-      <NavLink exact to="/About" className="nav" activeClassName="active-nav">
-        About
-      </NavLink>
-      <Search className="search" />
+
+      <div class="topnav-right">
+        <Search />
+      </div>
     </div>
   );
 };

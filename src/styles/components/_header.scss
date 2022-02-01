@@ -1,15 +1,22 @@
 .header {
+  width: 100vw;
+  overflow: auto;
   padding: 32px;
-  text-align: center;
-  height: 30vh;
-  min-height: 100px;
+  height: 50vh;
+  min-height: 50%;
   background: url(https://picsum.photos/1920) center/cover;
+
+  div-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   h3 {
     background-color: $color-4;
     color: $color-2;
     padding: 15px;
-    display: inline-block;
+    //display: inline-block;
     border-radius: 15px;
   }
 }

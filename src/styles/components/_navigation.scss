@@ -1,29 +1,36 @@
-.navigation {
+.topnav {
+  overflow: hidden;
   background-color: $color-1;
-  margin: 10;
-  display: flex;
+}
 
-  a {
-    padding: 20px;
-    position: relative;
-  }
+.topnav a {
+  float: left;
+  color: $color-4;
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-  .nav {
-    &:hover::after {
-      width: 100%;
-    }
-    &::after {
-      content: "";
-      display: block;
-      width: 0px;
-      height: 3px;
-      background: $color-3;
-      transition: 0.25s;
-    }
-  }
+.topnav a:hover::after {
+  width: 100%;
+}
 
-  .active-nav {
-    background: $color-5;
-    font-weight: bold;
-  }
+.topnav a::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 3px;
+  background: $color-3;
+  transition: 0.25s;
+}
+
+.topnav a.active {
+  color: $color-2;
+  background: $color-3;
+}
+
+.topnav-right {
+  float: right;
+  max-width: 50%;
 }

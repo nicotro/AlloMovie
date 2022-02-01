@@ -6,15 +6,24 @@ const Search = () => {
   const [Loading, setLoading] = useState("false");
   const [ErrorMessage, setErrorMessage] = useState("");
 
+  function handleOnInputChange(event) {
+    const query = event.nativeEvent.data;
+    setQuery(Query + query);
+    console.log(Query);
+    setLoading("true");
+    setErrorMessage("");
+  }
+
   return (
     <div className="search-bar">
       {/*Search Input*/}
       <label className="search-label" htmlFor="search-input">
         <input
-          type="text"
-          value=""
+          type="search"
+          value={Query}
           id="search-input"
           placeholder="Search movie..."
+          onChange={handleOnInputChange}
         />
         <SearchIcon />
       </label>

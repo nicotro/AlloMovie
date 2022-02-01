@@ -1,9 +1,6 @@
 .search-bar {
-  width: 100;
-  //max-width: 600px;
-  padding: 15px;
+  padding: 10px;
   text-align: right;
-  position: sticky;
 }
 
 .search-label {
@@ -12,6 +9,8 @@
 
 .search-bar input {
   height: 100%;
+  max-width: 100%;
+  min-width: 50%;
   padding-left: 15px;
   font-size: 1em;
   font-style: italic;
