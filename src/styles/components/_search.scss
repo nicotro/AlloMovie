@@ -1,0 +1,29 @@
+.search-bar {
+  width: 100;
+  //max-width: 600px;
+  padding: 15px;
+  text-align: right;
+  position: sticky;
+}
+
+.search-label {
+  position: relative;
+}
+
+.search-bar input {
+  height: 100%;
+  padding-left: 15px;
+  font-size: 1em;
+  font-style: italic;
+  color: $color-4;
+  border-radius: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.svg {
+  position: absolute;
+  top: -10px;
+  stroke: $color-3;
+  right: 18px;
+}

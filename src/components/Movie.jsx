@@ -2,7 +2,7 @@ import { API_KEY, BASE_API_URL, BASE_IMAGE_URL } from "../APIconfig";
 import React, { Component, useState } from "react";
 import MovieDetails from "./MovieDetails";
 
-function Movie(props) {
+const Movie = (props) => {
   const [detailPopup, setDetailPopup] = useState(false);
 
   return (
@@ -43,6 +43,6 @@ function Movie(props) {
       </MovieDetails>
     </div>
   );
-}
+};
 
 export default Movie;

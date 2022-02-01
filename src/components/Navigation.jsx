@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Search from "../components/Search";
 
 const Navigation = () => {
   return (
@@ -14,6 +15,10 @@ const Navigation = () => {
       >
         Favorites
       </NavLink>
+      <NavLink exact to="/About" className="nav" activeClassName="active-nav">
+        About
+      </NavLink>
+      <Search className="search" />
     </div>
   );
 };
