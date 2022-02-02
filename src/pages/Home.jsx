@@ -8,7 +8,7 @@ const Home = () => {
       <Header />
       <Navigation />
       <h1 className="movie-list-title">Popular movies list</h1>
-      <Movies />
+      <Movies page="popular"/>
     </div>
   );
 };

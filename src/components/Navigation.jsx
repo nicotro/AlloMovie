@@ -12,7 +12,7 @@ const Navigation = () => {
         className="nav"
         activeClassName="active-nav"
       >
-        Favorites
+        Favourites
       </NavLink>
     </div>
   );
