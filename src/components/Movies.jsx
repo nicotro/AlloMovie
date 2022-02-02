@@ -20,10 +20,24 @@ const Movies = (props) => {
         )
         .then((res) => setData(res.data.results));
     }, []);
-    console.log("popular");
   }
 
-  function GetSearchResults(page) {
+  function DiscoverMovies(page) {
+    useEffect(() => {
+      axios
+        .get(
+          BASE_API_URL +
+            "discover/movie?api_key=" +
+            API_KEY +
+            "&language=en-US&sort_by=vote_count.desc&page=" +
+            page +
+            "&region=FR"
+        )
+        .then((res) => setData(res.data.results));
+    }, []);
+  }
+
+  function GetSearchResults(page, query) {
     useEffect(() => {
       axios
         .get(
@@ -33,37 +47,25 @@ const Movies = (props) => {
             "&language=en-US&page=" +
             page +
             "&query=" +
-            props.searchText
+            query
         )
         .then((res) => setData(res.data.results));
     }, []);
     console.log("search");
   }
 
-  // function getPopularMovies() {
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         BASE_API_URL +
-  //           "movie/popular?api_key=" +
-  //           API_KEY +
-  //           "&language=en-US&page=1&region=FR"
-  //       )
-  //       .then((res) => setData(res.data.results));
-  //   }, []);
-  // }
-
   return (
     <div className="movies">
       {props.searchText.length === 0 && (
         <h1 className="movie-list-title">
-          {GetPopularMovies(props.resPage)}
-          Popular movies
+          {DiscoverMovies(props.resPage)}
+          Discover movies
         </h1>
       )}
       {props.searchText.length != 0 && (
         <h1 className="movie-list-title">
-          {GetSearchResults(props.resPage)}movie search results
+          {GetSearchResults(props.resPage, props.searchText)}movie search
+          results
         </h1>
       )}
 

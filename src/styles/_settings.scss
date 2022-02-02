@@ -25,6 +25,11 @@ body {
   justify-content: center;
   color: $color-3;
   background-color: $color-2;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1 {

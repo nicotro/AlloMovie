@@ -1,7 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import Search from "../components/Search";
 
 const Navigation = () => {
+  const [query, setQuery] = useState("");
+  const handleSearchCallback = (searchQuery) => {
+    setQuery(searchQuery);
+  };
+
   return (
     <div class="topnav">
       <NavLink exact to="/" className="nav" activeClassName="active">
@@ -13,7 +19,7 @@ const Navigation = () => {
       </NavLink>
 
       <div class="topnav-right">
-        <Search />
+        <Search searchCallback={handleSearchCallback} />
       </div>
     </div>
   );
