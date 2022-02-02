@@ -17,6 +17,6 @@ function MovieDetails(props) {
   ) : (
     ""
   );
-}
+};
 
 export default MovieDetails;

@@ -1,18 +1,23 @@
-import { API_KEY, BASE_API_URL, BASE_IMAGE_URL } from "../APIconfig";
 import React, { Component, useState } from "react";
+import { BASE_IMAGE_URL } from "../APIconfig";
 import MovieDetails from "./MovieDetails";
+import MoviePoster from "./MoviePoster";
 
-function Movie(props) {
+const Movie = (props) => {
   const [detailPopup, setDetailPopup] = useState(false);
   const FavouriteComponent = props.FavouriteComponent;
   //const FavComp = FavouriteComponent ? <RemoveFavourite/> : <AddFavourite/> ;
   
   return (
     <div className="movie">
-      <img
-        src={BASE_IMAGE_URL + "w185" + props.movieCard.poster_path}
-        alt={props.title}
+      <MoviePoster
+        urlBase={BASE_IMAGE_URL}
+        size="w185"
+        image={props.movieCard.poster_path}
+        name={props.title}
+        width="185"
       />
+
       <div className="basic-info">
         <li>
           <h1>{props.movieCard.title}</h1>
@@ -46,6 +51,6 @@ function Movie(props) {
       </MovieDetails>
     </div>
   );
-}
+};
 
 export default Movie;

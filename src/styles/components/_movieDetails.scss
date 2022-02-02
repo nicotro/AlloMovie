@@ -59,10 +59,13 @@
   svg {
     fill: rgb(172, 23, 43);
     vertical-align: middle;
+    width: 32px;
+    height: 32px;
   }
 }
 
-.popup .favorite-btn-off {
+.popup .favorite-btn-off,
+label {
   margin-top: 15px;
   &:hover {
     cursor: pointer;
@@ -70,5 +73,7 @@
   svg {
     fill: $color-3;
     vertical-align: middle;
+    width: 32px;
+    height: 32px;
   }
 }
