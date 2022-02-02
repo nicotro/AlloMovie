@@ -9,7 +9,7 @@ const Navigation = () => {
       </NavLink>
 
       <NavLink exact to="/Favorites" className="nav" activeClassName="active">
-        Favorites
+        Favourites
       </NavLink>
 
       <div class="topnav-right">

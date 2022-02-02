@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Header />
       <Navigation />
-      <Movies searchText="" resPage="1" />
+      <Movies searchText="" resPage="1" page="popular" />
     </div>
   );
 };
