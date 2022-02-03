@@ -13,7 +13,7 @@ const Home = () => {
       {/* to adapt for header background */}
       <Header searchText={search} resPage={page} />
       <Navigation />
-      <Movies searchText={search} resPage={page} page="popular" />
+      <Movies searchText="toto" resPage={page} page="popular" />
     </div>
   );
 };

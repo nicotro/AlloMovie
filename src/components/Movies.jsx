@@ -75,8 +75,10 @@ const Movies = (props) => {
   function FavouriteMovie() {
     useEffect(() => {
       const fav = localStorage.getItem("react-movie-app-favourites");
-      const movieFavourites = JSON.parse(fav);
-      setFavourites(movieFavourites);
+      if (fav != null) {
+        const movieFavourites = JSON.parse(fav);
+        setFavourites(movieFavourites);
+      }
     }, []);
   }
 
@@ -98,8 +100,40 @@ const Movies = (props) => {
     saveToLocalStorage(newFavouriteList);
   };
 
+  const toggleFavoriteMovie = (movie) => {
+    console.log(favourites);
+    const oldFavouriteListLength = favourites.length;
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.id === movie.id
+    );
+    if (newFavouriteList.length < oldFavouriteListLength) {
+      console.log("removed");
+      setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
+      return false;
+    } else {
+      //newFavouriteList = [...favourites, movie];
+      console.log("added");
+      setFavourites([...favourites, movie]);
+      saveToLocalStorage(newFavouriteList);
+      return true;
+    }
+  };
+
   if (props.page === "popular") {
     return (
+      // <div className="movies">
+      //   {props.searchText.length === 0 && (
+      //     <h1 className="movie-list-title">
+      //       {GetPopularMovies(props.resPage)}
+      //       Popular movies
+      //     </h1>
+      //   )}
+      //   {props.searchText.length != 0 && (
+      //     <h1 className="movie-list-title">
+      //       {GetSearchResults(props.resPage)}movie search results
+      //     </h1>
+
       <div className="movies">
         {props.searchText.length === 0 && (
           <h1 className="movie-list-title">
@@ -109,7 +143,8 @@ const Movies = (props) => {
         )}
         {props.searchText.length != 0 && (
           <h1 className="movie-list-title">
-            {GetSearchResults(props.resPage)}movie search results
+            {GetSearchResults(props.resPage, props.searchText)}movie search
+            results
           </h1>
         )}
         {FavouriteMovie()}
@@ -118,7 +153,7 @@ const Movies = (props) => {
           {data.map((movie) => (
             <Movie
               movieCard={movie}
-              handleFavouritesClick={addFavouriteMovie}
+              handleFavouritesClick={toggleFavoriteMovie}
               FavouriteComponent={AddFavourite}
             />
           ))}
