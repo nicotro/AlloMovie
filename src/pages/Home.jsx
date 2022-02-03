@@ -1,19 +1,27 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import Header from "../components/Header";
-import Navigation from "../components/Navigation";
-import Movies from "../components/Movies";
+import { useState, useEffect } from "react";
+import MoviesList from "../components/MoviesList";
+import Search from "../components/Search";
 
 const Home = () => {
   const [search, setsearch] = useState("");
   const [page, setPage] = useState("1");
 
+  const [query, setQuery] = useState("");
+  const handleSearchCallback = (searchQuery) => {
+    setQuery(searchQuery);
+    console.log("search query = " + searchQuery);
+    console.log("& query = " + query);
+    setsearch(query);
+  };
+
+  useEffect(() => {
+    console.log("hello");
+  }, [query]);
+
   return (
     <div>
-      {/* to adapt for header background */}
-      <Header searchText={search} resPage={page} />
-      <Navigation />
-      <Movies searchText="toto" resPage={page} page="popular" />
+      <Search />
+      <MoviesList searchText={query} resPage={page} />
     </div>
   );
 };

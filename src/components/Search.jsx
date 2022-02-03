@@ -13,7 +13,6 @@ const Search = (props) => {
 
   const handleChange = (event) => {
     setQuery(event.target.value);
-    //console.log(query);
   };
 
   return (
