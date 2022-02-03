@@ -9,6 +9,7 @@ $color-2: #e9e9e9;
 $color-3: #202947;
 $color-4: #202020;
 $color-5: #ecad00;
+$color-6: #020202;
 
 * {
   margin: 0;
@@ -23,8 +24,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: $color-3;
-  background-color: $color-2;
+  color: $color-2;
+  background-color: $color-6;
   overflow-y: scroll;
 }
 

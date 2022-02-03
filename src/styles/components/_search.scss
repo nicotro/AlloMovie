@@ -1,14 +1,15 @@
 .search-bar {
-  padding: 15px;
+  padding: 0;
+  padding-top: 25px;
   position: relative;
-  text-align: right;
+  text-align: center;
 }
 
 .search-bar input {
   height: 100%;
   max-width: 100%;
   min-width: 50%;
-  padding: 0 15px;
+  padding: 5px 15px;
   font-size: 1em;
   font-style: italic;
   color: $color-4;

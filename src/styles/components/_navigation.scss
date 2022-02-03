@@ -1,13 +1,20 @@
 .topnav {
+  min-width: 25%;
+  padding: 0 10px;
   overflow: hidden;
   background-color: $color-1;
+}
+
+.topnav-right {
+  float: right;
+  max-width: 85%;
 }
 
 .topnav a {
   float: left;
   color: $color-4;
   text-align: center;
-  padding: 15px 15px;
+  padding: 15px 10px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -30,7 +37,7 @@
   background: $color-3;
 }
 
-.topnav-right {
-  float: right;
-  max-width: 50%;
+topnav-left {
+  color: $color-2;
+  background: $color-3;
 }
