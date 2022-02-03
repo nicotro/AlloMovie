@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Movie from "./Movie";
 import { API_KEY, BASE_API_URL } from "../APIconfig";
-import RemoveFavourite from "./RemoveFavourite";
-import AddFavourite from "./AddFavourite";
 
 const Movies = (props) => {
   const [data, setData] = useState([]);
@@ -86,39 +84,64 @@ const Movies = (props) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(item));
   };
 
-  const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-  };
+  // const addFavouriteMovie = (movie) => {
+  //   const newFavouriteList = [...favourites, movie];
+  //   setFavourites(newFavouriteList);
+  //   saveToLocalStorage(newFavouriteList);
+  // };
 
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.id !== movie.id
-    );
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-  };
+  // const removeFavouriteMovie = (movie) => {
+  //   const newFavouriteList = favourites.filter(
+  //     (favourite) => favourite.id !== movie.id
+  //   );
+  //   setFavourites(newFavouriteList);
+  //   saveToLocalStorage(newFavouriteList);
+  // };
 
-  const toggleFavoriteMovie = (movie) => {
-    console.log(favourites);
-    const oldFavouriteListLength = favourites.length;
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.id === movie.id
-    );
-    if (newFavouriteList.length < oldFavouriteListLength) {
-      console.log("removed");
-      setFavourites(newFavouriteList);
-      saveToLocalStorage(newFavouriteList);
-      return false;
-    } else {
-      //newFavouriteList = [...favourites, movie];
-      console.log("added");
-      setFavourites([...favourites, movie]);
-      saveToLocalStorage(newFavouriteList);
-      return true;
+
+  function ToggleFavoriteMovie(movie) {
+    let newFavouriteList;
+    
+    if(favourites.length != 0) {
+      const isExist = favourites.filter(element => element.id === movie.id);
+      if(isExist.length != 0)
+      {
+        //console.log("removed");
+         newFavouriteList = favourites.filter(
+          (favourite) => favourite.id !== movie.id
+        );
+        //removeFavouriteMovie(movie);
+      } else 
+      {
+        //console.log("added");
+         newFavouriteList = [...favourites, movie];
+        //addFavouriteMovie(movie);
+      }
+
+   } else {
+      //console.log("added first");
+       newFavouriteList = [...favourites, movie];
+      //addFavouriteMovie(movie);
+
     }
-  };
+
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  }
+
+  function TextFavourite(id) {
+    if(favourites.length != 0) {
+      const isExist = favourites.filter(element => element.id === id);
+      if(isExist.length != 0)
+        return 1;
+      else  
+        return 0;
+      
+    } else {
+      return 0;
+    }
+  }
+
 
   if (props.page === "popular") {
     return (
@@ -153,8 +176,8 @@ const Movies = (props) => {
           {data.map((movie) => (
             <Movie
               movieCard={movie}
-              handleFavouritesClick={toggleFavoriteMovie}
-              FavouriteComponent={AddFavourite}
+              handleFavouritesClick={ToggleFavoriteMovie}
+              favouriteText={TextFavourite}
             />
           ))}
         </ul>
@@ -169,8 +192,8 @@ const Movies = (props) => {
           {favourites.map((movie) => (
             <Movie
               movieCard={movie}
-              handleFavouritesClick={removeFavouriteMovie}
-              FavouriteComponent={RemoveFavourite}
+              handleFavouritesClick={ToggleFavoriteMovie}
+              favouriteText={TextFavourite}
             />
           ))}
         </ul>
