@@ -5,12 +5,12 @@ import MoviePoster from "./MoviePoster";
 
 const Movie = (props) => {
   const [detailPopup, setDetailPopup] = useState(false);
-  const FavouriteComponent = props.FavouriteComponent;
-  let aa = "something";
-  //const FavComp = FavouriteComponent ? <RemoveFavourite/> : <AddFavourite/> ;
+  const textFav = props.favouriteText(props.movieCard.id)
+    ? "remove favourite"
+    : "add favourite";
 
   return (
-    <>
+    <div>
       <div className="movie">
         <MoviePoster
           urlBase={BASE_IMAGE_URL}
@@ -44,22 +44,20 @@ const Movie = (props) => {
           <li
             className="li-link"
             onClick={() => {
-              aa = props.handleFavouritesClick(props.movieCard)
-                ? "remove"
-                : "add";
+              props.handleFavouritesClick(props.movieCard);
             }}
           >
-            {aa}
+            {textFav}
           </li>
+          <li>{/*props.movieCard.id*/}</li>
         </div>
       </div>
-
       <MovieDetails
         trigger={detailPopup}
         setTrigger={setDetailPopup}
         movie={props.movieCard}
       />
-    </>
+    </div>
   );
 };
 

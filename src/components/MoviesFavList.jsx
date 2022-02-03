@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Movie from "./Movie";
-import RemoveFavourite from "./RemoveFavourite";
 
 const MoviesFavList = (props) => {
   const [data, setData] = useState([]);
@@ -21,33 +20,35 @@ const MoviesFavList = (props) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(item));
   };
 
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.id !== movie.id
-    );
+  function ToggleFavoriteMovie(movie) {
+    let newFavouriteList;
+
+    if (favourites.length != 0) {
+      const isExist = favourites.filter((element) => element.id === movie.id);
+      if (isExist.length != 0) {
+        newFavouriteList = favourites.filter(
+          (favourite) => favourite.id !== movie.id
+        );
+      } else {
+        newFavouriteList = [...favourites, movie];
+      }
+    } else {
+      newFavouriteList = [...favourites, movie];
+    }
+
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
-  };
+  }
 
-  const toggleFavoriteMovie = (movie) => {
-    console.log(favourites);
-    const oldFavouriteListLength = favourites.length;
-    const newFavouriteList = favourites.filter(
-      (favourite) => favourite.id === movie.id
-    );
-    if (newFavouriteList.length < oldFavouriteListLength) {
-      console.log("removed");
-      setFavourites(newFavouriteList);
-      saveToLocalStorage(newFavouriteList);
-      return false;
+  function TextFavourite(id) {
+    if (favourites.length != 0) {
+      const isExist = favourites.filter((element) => element.id === id);
+      if (isExist.length != 0) return 1;
+      else return 0;
     } else {
-      //newFavouriteList = [...favourites, movie];
-      console.log("added");
-      setFavourites([...favourites, movie]);
-      saveToLocalStorage(newFavouriteList);
-      return true;
+      return 0;
     }
-  };
+  }
 
   return (
     <div className="movies">
@@ -57,8 +58,8 @@ const MoviesFavList = (props) => {
         {favourites.map((movie) => (
           <Movie
             movieCard={movie}
-            handleFavouritesClick={removeFavouriteMovie}
-            FavouriteComponent={RemoveFavourite}
+            handleFavouritesClick={ToggleFavoriteMovie}
+            favouriteText={TextFavourite}
           />
         ))}
       </ul>
