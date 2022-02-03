@@ -4,6 +4,12 @@
 }
 $font-1: "Roboto", sans-serif;
 
+@font-face {
+  font-family: "Yellowtail";
+  src: url(./../assets/Yellowtail-Regular.ttf);
+}
+$font-2: "Yellowtail", cursive;
+
 $color-1: #f0ba0a;
 $color-2: #e9e9e9;
 $color-3: #202947;
