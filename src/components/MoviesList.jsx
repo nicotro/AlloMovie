@@ -3,20 +3,25 @@ import axios from "axios";
 import Movie from "./Movie";
 import { API_KEY, BASE_API_URL } from "../APIconfig";
 import Search from "../components/Search";
+import Pages from "../components/Pages";
+import { search } from "language-tags";
 
 const MoviesList = (props) => {
   const [data, setData] = useState([]);
   let favourites = [];
   const [searchValue,setSearchValue] = useState('');
   const [favState,setFavState] = useState(0);
+  const [pageState,setPageState] = useState(1);
+  const [pageTotal,setPageTotal] = useState(0);
+  const [totalResult,setTotalResult] = useState(0);
 
-  function DisplayMovies(page,query) {
+  function DisplayMovies() {
     useEffect(() => {
       if(searchValue.length === 0)
-        getMoviePopular(page);
+        getMoviePopular(pageState);
       else
-        getMovieRequest(query,page);
-    }, [searchValue])
+        getMovieRequest(searchValue,pageState);
+    }, [searchValue,pageState])
   }
 
   const getMovieRequest = async (query,page) => {
@@ -32,6 +37,8 @@ const MoviesList = (props) => {
 
     if(responseJson.results) {
       setData(responseJson.results);
+      setPageTotal(responseJson.total_pages);
+      setTotalResult(responseJson.total_results);
     }
   }
 
@@ -47,6 +54,8 @@ const MoviesList = (props) => {
 
     if(responseJson.results) {
       setData(responseJson.results);
+      setPageTotal(responseJson.total_pages);
+      setTotalResult(responseJson.total_results);
     }
   }
 
@@ -96,8 +105,8 @@ const MoviesList = (props) => {
   return (
     <div className="movies">
       <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
-
-      {DisplayMovies(1,searchValue)}
+      <h1>Total Movies: {totalResult}</h1>
+      {DisplayMovies()}
       {FavouriteMovie()}
       {searchValue.length ? (<h1 className="movie-list-title">Search Movie Results</h1>) : (<h1 className="movie-list-title">Popular Movies</h1>)}
       <ul className="movies-list">
@@ -109,6 +118,7 @@ const MoviesList = (props) => {
           />
         ))}
       </ul>
+      <Pages page={pageState} setPage={setPageState}/>
     </div>
   );
 };
