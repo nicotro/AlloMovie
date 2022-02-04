@@ -44,6 +44,16 @@ const MoviesList = (props) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(item));
   };
 
+  function FavouriteMovie() {
+    useEffect(() => {
+      const fav = localStorage.getItem("react-movie-app-favourites");
+      if (fav != null) {
+        const movieFavourites = JSON.parse(fav);
+        setFavourites(movieFavourites);
+      }
+    }, []);
+  }
+
   function ToggleFavoriteMovie(movie) {
     let newFavouriteList;
 
@@ -88,6 +98,7 @@ const MoviesList = (props) => {
           results
         </h1>
       )}
+      {FavouriteMovie}
       <ul className="movies-list">
         {data.map((movie) => (
           <Movie
