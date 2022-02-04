@@ -1,14 +1,13 @@
-import Header from "../components/Header";
-import Navigation from "../components/Navigation";
-import Movies from "../components/Movies";
+import { useState } from "react";
+import MoviesFavList from "../components/MoviesFavList";
+import Search from "../components/Search";
 
 const Favorites = () => {
   return (
     <div>
-      <Header />
-      <Navigation />
+      
       <h1 className="movie-list-title">Favourites</h1>
-      <Movies page="favourite"/>
+      <MoviesFavList />
     </div>
   );
 };

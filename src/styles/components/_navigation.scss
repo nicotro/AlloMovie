@@ -1,15 +1,22 @@
 .topnav {
+  min-width: 25%;
+  padding: 0 10px 0 0;
   overflow: hidden;
   background-color: $color-1;
+}
+
+.topnav-right {
+  float: right;
+  max-width: 85%;
 }
 
 .topnav a {
   float: left;
   color: $color-4;
   text-align: center;
-  padding: 15px 15px;
+  padding: 1.25em 0.5em 1.25em 0.5em;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 1em;
 }
 
 .topnav a:hover::after {
@@ -30,7 +37,23 @@
   background: $color-3;
 }
 
-.topnav-right {
-  float: right;
-  max-width: 50%;
+.topnav-left {
+  color: $color-1;
+  background: $color-1;
+}
+
+.topnav-left a {
+  font-family: $font-2;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: $color-2 0.025em 0.025em;
+  margin: 0;
+  padding: 0.3em 0.5em 0.2em 0.5em;
+  color: $color-3;
+  &:hover {
+    background: $color-1;
+  }
+  &::after {
+    background: $color-1;
+  }
 }
