@@ -4,24 +4,24 @@ import Movie from "./Movie";
 import { API_KEY, BASE_API_URL } from "../APIconfig";
 import Search from "../components/Search";
 import Pages from "../components/Pages";
-import { search } from "language-tags";
+import Pagination from "./Pagination";
 
 const MoviesList = (props) => {
-  const [data, setData] = useState([]);
+  let PageSize = 20;
   let favourites = [];
+  const [data, setData] = useState([]);
   const [searchValue,setSearchValue] = useState('');
   const [favState,setFavState] = useState(0);
-  const [pageState,setPageState] = useState(1);
-  const [pageTotal,setPageTotal] = useState(0);
+  const [currentPage,setCurrentPage] = useState(1);
   const [totalResult,setTotalResult] = useState(0);
 
   function DisplayMovies() {
     useEffect(() => {
       if(searchValue.length === 0)
-        getMoviePopular(pageState);
+        getMoviePopular(currentPage);
       else
-        getMovieRequest(searchValue,pageState);
-    }, [searchValue,pageState])
+        getMovieRequest(searchValue,currentPage);
+    }, [searchValue,currentPage])
   }
 
   const getMovieRequest = async (query,page) => {
@@ -37,7 +37,6 @@ const MoviesList = (props) => {
 
     if(responseJson.results) {
       setData(responseJson.results);
-      setPageTotal(responseJson.total_pages);
       setTotalResult(responseJson.total_results);
     }
   }
@@ -54,7 +53,6 @@ const MoviesList = (props) => {
 
     if(responseJson.results) {
       setData(responseJson.results);
-      setPageTotal(responseJson.total_pages);
       setTotalResult(responseJson.total_results);
     }
   }
@@ -105,7 +103,7 @@ const MoviesList = (props) => {
   return (
     <div className="movies">
       <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
-      <h1>Total Movies: {totalResult}</h1>
+      <h3>Total Movies: {totalResult}</h3>
       {DisplayMovies()}
       {FavouriteMovie()}
       {searchValue.length ? (<h1 className="movie-list-title">Search Movie Results</h1>) : (<h1 className="movie-list-title">Popular Movies</h1>)}
@@ -118,7 +116,14 @@ const MoviesList = (props) => {
           />
         ))}
       </ul>
-      <Pages page={pageState} setPage={setPageState}/>
+      {<Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={totalResult}
+        pageSize={PageSize}
+        onPageChange={page => setCurrentPage(page)}
+      />}
+      {/*<Pages page={currentPage} setPage={setCurrentPage}/>*/}
     </div>
   );
 };

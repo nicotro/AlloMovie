@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Movie from "./Movie";
+import Search from "../components/Search";
 
 const MoviesFavList = (props) => {
+  let PageSize = 20;
   const [data, setData] = useState([]);
   const [favourites, setFavourites] = useState([]);
+  const [searchValue,setSearchValue] = useState('');
+  const [currentPage,setCurrentPage] = useState(1);
+  const [totalResult,setTotalResult] = useState(0);
 
   function FavouriteMovie() {
     useEffect(() => {
@@ -11,6 +16,7 @@ const MoviesFavList = (props) => {
       if (fav != null) {
         const movieFavourites = JSON.parse(fav);
         setFavourites(movieFavourites);
+        setTotalResult(movieFavourites.length);
       }
     }, []);
   }
@@ -51,6 +57,7 @@ const MoviesFavList = (props) => {
 
   return (
     <div className="movies">
+      <h1 className="movie-list-title">Favourites</h1>
       {FavouriteMovie()}
 
       <ul className="movies-list">
