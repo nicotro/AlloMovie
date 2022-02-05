@@ -1,15 +1,15 @@
-## "PROJET ALLO-MOVIE" project
+## AlloMovie project
 
-Allociné-like web-app using React & TMDB Api.
+Allociné-like web-app using React & TMDB Api.  
+Discover or search movies from the database, results can be saved as favorites (local storage).
 
-- First draft to setup a new Git Account/Repository
-- First week of React practice.
+- Setup a new Git Account/Repository
+- Teamed up with Thanawan
+- Learning React & JS (+css along the way)
+- Project using Axios & bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+- Run '**npm i -s**' to install all needed packages
 
-## Project created with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-# Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 

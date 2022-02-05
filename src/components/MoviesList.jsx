@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import Movie from "./Movie";
 import { API_KEY, BASE_API_URL } from "../APIconfig";
 import Search from "../components/Search";
+import Pagination from "./Pagination";
 
-const MoviesList = () => {
-  const [data, setData] = useState([]);
+const MoviesList = (props) => {
+  let PageSize = 20;
   let favourites = [];
+  const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [favState, setFavState] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalResult, setTotalResult] = useState(0);
 
-  function DisplayMovies(page, query) {
+  function DisplayMovies() {
     useEffect(() => {
-      if (searchValue.length === 0) getMoviePopular(page);
-      else getMovieRequest(query, page);
-    }, [searchValue]);
+      if (searchValue.length === 0) getMoviePopular(currentPage);
+      else getMovieRequest(searchValue, currentPage);
+    }, [searchValue, currentPage]);
   }
 
   const getMovieRequest = async (query, page) => {
@@ -30,6 +34,7 @@ const MoviesList = () => {
 
     if (responseJson.results) {
       setData(responseJson.results);
+      setTotalResult(responseJson.total_results);
     }
   };
 
@@ -46,6 +51,7 @@ const MoviesList = () => {
 
     if (responseJson.results) {
       setData(responseJson.results);
+      setTotalResult(responseJson.total_results);
     }
   };
 
@@ -95,14 +101,14 @@ const MoviesList = () => {
   return (
     <div className="movies">
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-
-      {DisplayMovies(1, searchValue)}
+      {DisplayMovies()}
       {FavouriteMovie()}
       {searchValue.length ? (
         <h1 className="movie-list-title">Search Movie Results</h1>
       ) : (
         <h1 className="movie-list-title">Popular Movies</h1>
       )}
+      <h4 className="movie-list-title">Total Movies: {totalResult}</h4>
       <ul className="movies-list">
         {data.map((movie) => (
           <Movie
@@ -112,6 +118,15 @@ const MoviesList = () => {
           />
         ))}
       </ul>
+      {
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={totalResult}
+          pageSize={PageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      }
     </div>
   );
 };
