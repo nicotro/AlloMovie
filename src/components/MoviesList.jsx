@@ -1,58 +1,65 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Movie from "./Movie";
 import { API_KEY, BASE_API_URL } from "../APIconfig";
+import Search from "../components/Search";
 
-const MoviesList = (props) => {
+const MoviesList = () => {
   const [data, setData] = useState([]);
-  // props = searchText & resPage
-  const [favourites, setFavourites] = useState([]);
+  let favourites = [];
+  const [searchValue, setSearchValue] = useState("");
+  const [favState, setFavState] = useState(0);
 
-  function GetPopularMovies(page) {
+  function DisplayMovies(page, query) {
     useEffect(() => {
-      axios
-        .get(
-          BASE_API_URL +
-            "movie/popular?api_key=" +
-            API_KEY +
-            "&language=en-US&page=" +
-            page +
-            "&region=FR"
-        )
-        .then((res) => setData(res.data.results));
-    }, []);
+      if (searchValue.length === 0) getMoviePopular(page);
+      else getMovieRequest(query, page);
+    }, [searchValue]);
   }
 
-  function GetSearchResults(page, query) {
-    useEffect(() => {
-      axios
-        .get(
-          BASE_API_URL +
-            "search/movie?api_key=" +
-            API_KEY +
-            "&language=en-US&page=" +
-            page +
-            "&query=" +
-            query
-        )
-        .then((res) => setData(res.data.results));
-    }, []);
-    console.log("search");
+  const getMovieRequest = async (query, page) => {
+    const url =
+      BASE_API_URL +
+      "search/movie?api_key=" +
+      API_KEY +
+      "&language=en-US&page=" +
+      page +
+      "&query=" +
+      query;
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if (responseJson.results) {
+      setData(responseJson.results);
+    }
+  };
+
+  const getMoviePopular = async (page) => {
+    const url =
+      BASE_API_URL +
+      "movie/popular?api_key=" +
+      API_KEY +
+      "&language=en-US&page=" +
+      page +
+      "&region=FR";
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if (responseJson.results) {
+      setData(responseJson.results);
+    }
+  };
+
+  function FavouriteMovie() {
+    const fav = localStorage.getItem("react-movie-app-favourites");
+    if (fav != null) {
+      const movieFavourites = JSON.parse(fav);
+      favourites = movieFavourites;
+    }
   }
 
   const saveToLocalStorage = (item) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(item));
   };
-
-  function FavouriteMovie() {
-    useEffect(() => {
-      const fav = localStorage.getItem("react-movie-app-favourites");
-      if (fav != null) {
-        const movieFavourites = JSON.parse(fav);
-        setFavourites(movieFavourites);
-      }
-    }, []);
-  }
 
   function ToggleFavoriteMovie(movie) {
     let newFavouriteList;
@@ -63,14 +70,17 @@ const MoviesList = (props) => {
         newFavouriteList = favourites.filter(
           (favourite) => favourite.id !== movie.id
         );
+        setFavState(favState + 1);
       } else {
         newFavouriteList = [...favourites, movie];
+        setFavState(favState + 1);
       }
     } else {
       newFavouriteList = [...favourites, movie];
+      setFavState(favState + 1);
     }
 
-    setFavourites(newFavouriteList);
+    favourites = newFavouriteList;
     saveToLocalStorage(newFavouriteList);
   }
 
@@ -79,26 +89,20 @@ const MoviesList = (props) => {
       const isExist = favourites.filter((element) => element.id === id);
       if (isExist.length != 0) return 1;
       else return 0;
-    } else {
-      return 0;
-    }
+    } else return 0;
   }
 
   return (
     <div className="movies">
-      {props.searchText.length === 0 && (
-        <h1 className="movie-list-title">
-          {GetPopularMovies(props.resPage)}
-          Popular movies
-        </h1>
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+
+      {DisplayMovies(1, searchValue)}
+      {FavouriteMovie()}
+      {searchValue.length ? (
+        <h1 className="movie-list-title">Search Movie Results</h1>
+      ) : (
+        <h1 className="movie-list-title">Popular Movies</h1>
       )}
-      {props.searchText.length != 0 && (
-        <h1 className="movie-list-title">
-          {GetSearchResults(props.resPage, props.searchText)}movie search
-          results
-        </h1>
-      )}
-      {FavouriteMovie}
       <ul className="movies-list">
         {data.map((movie) => (
           <Movie

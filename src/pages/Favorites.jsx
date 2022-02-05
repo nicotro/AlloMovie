@@ -7,9 +7,8 @@ const Favorites = () => {
   const [page, setPage] = useState("1");
   return (
     <div>
-      <Search />
       <h1 className="movie-list-title">Favourites</h1>
-      <MoviesFavList searchText={search} resPage={page} page="favourite" />
+      <MoviesFavList />
     </div>
   );
 };

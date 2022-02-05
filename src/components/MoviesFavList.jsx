@@ -3,7 +3,6 @@ import Movie from "./Movie";
 
 const MoviesFavList = (props) => {
   const [data, setData] = useState([]);
-  // props = searchText & resPage
   const [favourites, setFavourites] = useState([]);
 
   function FavouriteMovie() {

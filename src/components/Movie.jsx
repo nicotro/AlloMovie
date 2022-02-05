@@ -49,7 +49,6 @@ const Movie = (props) => {
           >
             {textFav}
           </li>
-          <li>{/*props.movieCard.id*/}</li>
         </div>
       </div>
       <MovieDetails
