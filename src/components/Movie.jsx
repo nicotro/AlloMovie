@@ -6,18 +6,26 @@ import { Modal } from "react-responsive-modal";
 import AddRemoveCoeur from "./AddRemoveCoeur";
 import { ReactComponent as CloseIcon } from "./../assets/close_black_24dp.svg";
 import { ReactComponent as DetailIcon } from "./../assets/search_black_24dp.svg";
+import { ReactComponent as FavIconOn } from "./../assets/favorite_black_24dp.svg";
+import { ReactComponent as FavIconOff } from "./../assets/favorite_border_black_24dp.svg";
 
 const Movie = (props) => {
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
-  //const textFav = props.favouriteText(props.movieCard.id) ? " Remove" : " Add";
-  const redHeart = props.favouriteText(props.movieCard.id) ? "true" : "false";
-
   const myRef = React.useRef(null);
   const closeIcon = <CloseIcon />;
+
+  const textFav = props.favouriteText(props.movieCard.id) ? " Remove" : " Add";
+  const redHeart = props.favouriteText(props.movieCard.id) ? (
+    <FavIconOn />
+  ) : (
+    <FavIconOff />
+  );
+  const heartClass = props.favouriteText(props.movieCard.id)
+    ? "btn btn-fav-on"
+    : "btn btn-fav-off";
 
   return (
     <div ref={myRef}>
@@ -57,8 +65,9 @@ const Movie = (props) => {
                 props.handleFavouritesClick(props.movieCard);
               }}
             >
-              <span className="btn">
-                <AddRemoveCoeur heart={redHeart} />
+              <span className={heartClass}>
+                {redHeart}
+                {textFav}
               </span>
             </h2>
           </div>
