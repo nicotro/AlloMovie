@@ -3,7 +3,6 @@ import { BASE_IMAGE_URL } from "../APIconfig";
 import MovieDetails from "./MovieDetails";
 import MoviePoster from "./MoviePoster";
 import { Modal } from "react-responsive-modal";
-import AddRemoveCoeur from "./AddRemoveCoeur";
 import { ReactComponent as CloseIcon } from "./../assets/close_black_24dp.svg";
 import { ReactComponent as DetailIcon } from "./../assets/search_black_24dp.svg";
 import { ReactComponent as FavIconOn } from "./../assets/favorite_black_24dp.svg";

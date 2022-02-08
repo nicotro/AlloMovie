@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AddRemoveCoeur from "./AddRemoveCoeur";
 import MoviePoster from "./MoviePoster";
 import { BASE_IMAGE_URL } from "../APIconfig";
 import { ReactComponent as FavIconOn } from "./../assets/favorite_black_24dp.svg";
