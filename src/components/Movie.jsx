@@ -1,16 +1,26 @@
-import React, { Component, useState } from "react";
+import React, { myRef, useState } from "react";
 import { BASE_IMAGE_URL } from "../APIconfig";
 import MovieDetails from "./MovieDetails";
 import MoviePoster from "./MoviePoster";
+import { Modal } from "react-responsive-modal";
+import AddRemoveCoeur from "./AddRemoveCoeur";
+import { ReactComponent as CloseIcon } from "./../assets/close_black_24dp.svg";
+import { ReactComponent as DetailIcon } from "./../assets/search_black_24dp.svg";
 
 const Movie = (props) => {
-  const [detailPopup, setDetailPopup] = useState(false);
-  const textFav = props.favouriteText(props.movieCard.id)
-    ? "remove favourite"
-    : "add favourite";
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  //const textFav = props.favouriteText(props.movieCard.id) ? " Remove" : " Add";
+  const redHeart = props.favouriteText(props.movieCard.id) ? "true" : "false";
+
+  const myRef = React.useRef(null);
+  const closeIcon = <CloseIcon />;
 
   return (
-    <div>
+    <div ref={myRef}>
       <div className="movie">
         <MoviePoster
           urlBase={BASE_IMAGE_URL}
@@ -21,41 +31,39 @@ const Movie = (props) => {
         />
 
         <div className="basic-info">
-          <li>
+          <div className="title">
             <h1>{props.movieCard.title}</h1>
-          </li>
-          <li>
-            <h2>
-              <h2-title>Release: </h2-title>
-              {props.movieCard.release_date}
+          </div>
+          <div className="links">
+            <h2 className="h2-link" onClick={onOpenModal}>
+              <span className="btn">
+                <DetailIcon />
+              </span>
+              Details
             </h2>
-          </li>
-          <li>
-            <h2>
-              <h2-title>Rating: </h2-title>
-              {props.movieCard.vote_average} ({props.movieCard.vote_count})
+            <Modal
+              open={open}
+              onClose={onCloseModal}
+              center
+              classNames={{ modal: "customModal" }}
+              closeIcon={closeIcon}
+              container={myRef.current}
+            >
+              <MovieDetails movie={props.movieCard} />
+            </Modal>
+            <h2
+              className="h2-link"
+              onClick={() => {
+                props.handleFavouritesClick(props.movieCard);
+              }}
+            >
+              <span className="btn">
+                <AddRemoveCoeur heart={redHeart} />
+              </span>
             </h2>
-          </li>
-          <br />
-          <li className="li-link" onClick={() => setDetailPopup(true)}>
-            details
-          </li>
-
-          <li
-            className="li-link"
-            onClick={() => {
-              props.handleFavouritesClick(props.movieCard);
-            }}
-          >
-            {textFav}
-          </li>
+          </div>
         </div>
       </div>
-      <MovieDetails
-        trigger={detailPopup}
-        setTrigger={setDetailPopup}
-        movie={props.movieCard}
-      />
     </div>
   );
 };
