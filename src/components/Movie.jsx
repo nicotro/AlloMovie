@@ -11,6 +11,9 @@ import { ReactComponent as FavIconOff } from "./../assets/favorite_border_black_
 
 const Movie = (props) => {
   const [open, setOpen] = useState(false);
+  const [favorite, setFavorite] = useState(
+    props.favouriteText(props.movieCard.id)
+  );
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -26,6 +29,10 @@ const Movie = (props) => {
   const heartClass = props.favouriteText(props.movieCard.id)
     ? "btn btn-fav-on"
     : "btn btn-fav-off";
+
+  function GetDetailFavourite() {
+    props.handleFavouritesClick(props.movieCard);
+  }
 
   return (
     <div ref={myRef}>
@@ -57,7 +64,11 @@ const Movie = (props) => {
               closeIcon={closeIcon}
               container={myRef.current}
             >
-              <MovieDetails movie={props.movieCard} />
+              <MovieDetails
+                movie={props.movieCard}
+                favourite={props.favouriteText(props.movieCard.id)}
+                GetDetailFavourite={GetDetailFavourite}
+              />
             </Modal>
             <h2
               className="h2-link"
