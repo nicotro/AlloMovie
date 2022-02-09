@@ -29,7 +29,7 @@
   }
 
   p {
-    margin-top: 30px;
+    margin-top: 15px;
     color: $color-4;
   }
 
@@ -38,43 +38,45 @@
     padding: 0;
     text-align: left;
     font-size: 1.5em;
+    font-weight: normal;
     color: $color-2;
   }
 
   .h2-link {
-    &:hover {
-      cursor: pointer;
-      font-weight: bold;
-      svg {
-        stroke: $color-2;
-        stroke-width: 5%;
-      }
-    }
+    margin-top: 20px;
   }
 
   .btn {
     color: $color-2;
+    background-color: $color-3;
+    padding: 10px;
     margin-top: 15px;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+      svg {
+        transform: scale(1.1);
+      }
+    }
+
     svg {
       fill: $color-2;
       vertical-align: middle;
       width: 32px;
       height: 32px;
+      transition: transform 0.3s ease;
     }
   }
+
   .btn-fav-on {
     svg {
       fill: $color-7;
-      width: 32px;
-      height: 32px;
     }
   }
 
   .btn-fav-off {
     svg {
       fill: $color-2;
-      width: 32px;
-      height: 32px;
     }
   }
 }
@@ -88,31 +90,3 @@
     cursor: pointer;
   }
 }
-
-// .popup .favorite-btn-on {
-//   margin-top: 15px;
-//   color: $color-4;
-//   &:hover {
-//     cursor: pointer;
-//   }
-//   svg {
-//     fill: rgb(172, 23, 43);
-//     vertical-align: middle;
-//     width: 32px;
-//     height: 32px;
-//   }
-// }
-
-// .popup .favorite-btn-off {
-//   color: $color-4;
-//   margin-top: 15px;
-//   &:hover {
-//     cursor: pointer;
-//   }
-//   svg {
-//     fill: $color-3;
-//     vertical-align: middle;
-//     width: 32px;
-//     height: 32px;
-//   }
-// }

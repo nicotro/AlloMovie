@@ -52,8 +52,8 @@ const Movie = (props) => {
             <h2 className="h2-link" onClick={onOpenModal}>
               <span className="btn">
                 <DetailIcon />
+                Details
               </span>
-              Details
             </h2>
             <Modal
               open={open}
