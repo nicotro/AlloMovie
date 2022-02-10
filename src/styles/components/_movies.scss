@@ -1,5 +1,5 @@
 .movies {
-  width: 100vw;
+  width: 100%;
 
   .movies-list {
     display: flex;
@@ -28,6 +28,5 @@
 .movie-list-title {
   margin: 0;
   padding-top: 10px;
-  //padding: 20px;
   text-align: center;
 }

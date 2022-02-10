@@ -1,0 +1,17 @@
+.about-box {
+  max-width: 100%;
+  min-height: 35%;
+  height: auto;
+  background-color: $color-2;
+  border-radius: 10px;
+  justify-content: center;
+  margin: 1em;
+  padding: 1em;
+}
+
+.about-title {
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+  color: $color-3;
+}
