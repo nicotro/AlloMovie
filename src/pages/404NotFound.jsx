@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const NotFound = () => {
   //const [page, setPage] = useState("1");
   return (
