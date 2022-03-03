@@ -10,8 +10,8 @@ Discover or search movies from the database, results can be saved as favorites (
 - Responsive design
 - Project bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-Current status = functionnal website, needs adjustments (Favorites pagination & management, details, ...)  
-**Front Office = React 17.0.2** (npm -i to install/update dependencies)
+Current status = functionnal website, needs adjustments (Favorites pagination & management, movie details, about page, ...)  
+**Made with React 17.0.2** (npm -i to install/update dependencies)
 ![Front end preview](/AlloMovie_Cover.png)
 
 ## Available Scripts
