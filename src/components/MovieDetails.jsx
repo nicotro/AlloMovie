@@ -21,13 +21,15 @@ function MovieDetails(props) {
   return (
     <div className="MovieDetails">
       <div className="popup">
-        <MoviePoster
-          urlBase={BASE_IMAGE_URL}
-          size="w342"
-          image={props.movie.poster_path}
-          name={props.title}
-          width="342"
-        />
+        <div>
+          <MoviePoster
+            urlBase={BASE_IMAGE_URL}
+            size="w342"
+            image={props.movie.poster_path}
+            name={props.title}
+            width="342"
+          />
+        </div>
         <h3>{props.movie.title}</h3>
         <span>{props.movie.release_date}</span>
         <span>Rating {props.movie.vote_average}</span>

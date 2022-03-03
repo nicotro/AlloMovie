@@ -1,6 +1,4 @@
-import { NavLink, Redirect } from "react-router-dom";
-import { useState } from "react";
-import Search from "../components/Search";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (

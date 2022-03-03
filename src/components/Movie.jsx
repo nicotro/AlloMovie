@@ -15,7 +15,10 @@ const Movie = (props) => {
   );
 
   const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const onCloseModal = () => {
+    setOpen(false);
+    props.favouriteText(props.movieCard.id);
+  };
   const myRef = React.useRef(null);
   const closeIcon = <CloseIcon />;
 

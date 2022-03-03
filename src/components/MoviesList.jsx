@@ -70,9 +70,9 @@ const MoviesList = (props) => {
   function ToggleFavoriteMovie(movie) {
     let newFavouriteList;
 
-    if (favourites.length != 0) {
+    if (favourites.length !== 0) {
       const isExist = favourites.filter((element) => element.id === movie.id);
-      if (isExist.length != 0) {
+      if (isExist.length !== 0) {
         newFavouriteList = favourites.filter(
           (favourite) => favourite.id !== movie.id
         );
@@ -91,9 +91,9 @@ const MoviesList = (props) => {
   }
 
   function TextFavourite(id) {
-    if (favourites.length != 0) {
+    if (favourites.length !== 0) {
       const isExist = favourites.filter((element) => element.id === id);
-      if (isExist.length != 0) return 1;
+      if (isExist.length !== 0) return 1;
       else return 0;
     } else return 0;
   }
@@ -112,6 +112,7 @@ const MoviesList = (props) => {
       <ul className="movies-list">
         {data.map((movie) => (
           <Movie
+            key={movie.id}
             movieCard={movie}
             handleFavouritesClick={ToggleFavoriteMovie}
             favouriteText={TextFavourite}

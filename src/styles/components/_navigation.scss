@@ -4,21 +4,17 @@
   top: 0;
   z-index: 100;
   min-width: 25%;
-  padding: 0 10px 0 0;
+  min-height: 4rem;
+  padding: 0;
   overflow: hidden;
   background-color: $color-1;
-}
-
-.topnav-right {
-  float: right;
-  max-width: 85%;
 }
 
 .topnav a {
   float: left;
   color: $color-4;
   text-align: center;
-  padding: 1.5em 0.5em 1.25em 0.5em;
+  padding: 1.5em 0.5em 1em 0.5em;
   text-decoration: none;
   font-size: 1em;
 }
@@ -39,6 +35,13 @@
 .topnav a.active {
   color: $color-2;
   background: $color-3;
+  min-height: 4rem;
+}
+
+.topnav-right {
+  float: right;
+  max-width: 85%;
+  padding: 0;
 }
 
 .topnav-left {
@@ -48,7 +51,7 @@
 
 .topnav-left a {
   font-family: $font-2;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   text-shadow: $color-2 0.025em 0.025em;
   margin: 0;
@@ -59,5 +62,62 @@
   }
   &::after {
     background: $color-1;
+  }
+}
+
+/* Responsive navbar & menu - Hamburger icon */
+.topnav .icon {
+  display: none;
+  min-height: 2rem;
+  //padding: 1em 2em 0.5em 2em;
+  &:hover {
+    background: $color-1;
+  }
+  &::after {
+    background: $color-1;
+  }
+}
+
+/* Show the menu hamburger icon (.icon) when screeen width < 400 pixels */
+/* Change menu display to vertical */
+@media screen and (max-width: 480px) {
+  .topnav .icon {
+    display: block;
+    padding-top: 1rem;
+    cursor: pointer;
+    &:hover {
+      content: none;
+    }
+    &::after {
+      content: none;
+    }
+  }
+
+  .topnav-right {
+    flex-direction: column;
+    max-width: 50%;
+  }
+
+  .topnav-right a {
+    width: 100%;
+    color: $color-4;
+    text-align: right;
+    padding: 0.25rem 1rem 0.25rem 0.5rem;
+    font-size: 1rem;
+    &:hover {
+      content: none;
+    }
+    &::after {
+      content: none;
+    }
+  }
+
+  .topnav-right a.active {
+    color: $color-3;
+    background: none;
+    min-height: 1rem;
+    font-weight: bold;
+    text-shadow: $color-2 0.025rem 0.025rem;
+    padding: 0.25rem 1rem 0.25rem 0.5rem;
   }
 }
