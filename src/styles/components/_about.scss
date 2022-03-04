@@ -1,17 +1,23 @@
+.about-body {
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .about-box {
-  max-width: 100%;
+  max-width: 75%;
   min-height: 35%;
-  height: auto;
+  //height: auto;
   background-color: $color-2;
   border-radius: 10px;
   justify-content: center;
-  margin: 1em;
-  padding: 1em;
+  margin: 1rem auto;
+  padding: 1rem;
 }
 
 .about-title {
   margin: 0;
-  padding: 0 10px;
+  padding: 0 0.5rem;
   text-align: center;
   color: $color-3;
 }
