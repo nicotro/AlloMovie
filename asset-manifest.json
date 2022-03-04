@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/AlloMovie/static/css/main.cd8fde2b.css",
-    "main.js": "/AlloMovie/static/js/main.6cf1c7eb.js",
+    "main.css": "/AlloMovie/static/css/main.e140fddf.css",
+    "main.js": "/AlloMovie/static/js/main.249be4f7.js",
     "static/media/Roboto-Regular.ttf": "/AlloMovie/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Yellowtail-Regular.ttf": "/AlloMovie/static/media/Yellowtail-Regular.68015177cbf9575be4a4.ttf",
     "index.html": "/AlloMovie/index.html",
@@ -10,11 +10,11 @@
     "static/media/favorite_black_24dp.svg": "/AlloMovie/static/media/favorite_black_24dp.0ec0a57a13870fa1363a4b79a246066d.svg",
     "static/media/close_black_24dp.svg": "/AlloMovie/static/media/close_black_24dp.eeef4ae49042d05be01c2d5d7fb11c63.svg",
     "static/media/menu_black_24dp.svg": "/AlloMovie/static/media/menu_black_24dp.9dbc5a3a96ad85a57422263699b1695d.svg",
-    "main.cd8fde2b.css.map": "/AlloMovie/static/css/main.cd8fde2b.css.map",
-    "main.6cf1c7eb.js.map": "/AlloMovie/static/js/main.6cf1c7eb.js.map"
+    "main.e140fddf.css.map": "/AlloMovie/static/css/main.e140fddf.css.map",
+    "main.249be4f7.js.map": "/AlloMovie/static/js/main.249be4f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd8fde2b.css",
-    "static/js/main.6cf1c7eb.js"
+    "static/css/main.e140fddf.css",
+    "static/js/main.249be4f7.js"
   ]
 }
