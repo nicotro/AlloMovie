@@ -28,21 +28,28 @@ $color-7: #ac172b;
 
 .site-content {
   min-width: 100%;
-  max-width: 60rem;
-  margin: auto; /* to center the content div itself. */
-  box-shadow: 0px 0px 4px 4px #bfbfbf;
+  max-width: 100rem;
+  box-shadow: 0px 0px 4px 4px $color-6a;
   background-color: $color-6;
 }
 
 body {
-  max-width: 100%;
+  margin: auto; /* to center the content div itself. */
+  max-width: 75rem;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: $color-2;
-  background-color: $color-2;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 233, 224, 1) 0%,
+    rgba(255, 255, 242, 1) 35%,
+    rgba(249, 255, 239, 1) 65%,
+    rgba(224, 238, 255, 1) 100%
+  );
+  //background-color: $color-2;
   overflow-y: scroll;
 }
 
@@ -82,4 +89,59 @@ a:visited {
 p {
   margin: 10px 5px;
   color: $color-4;
+}
+
+// 12 columns responsive Grid
+// Regular size screen (desktop)
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+// Small width screens (phones)
+@media only screen and (max-width: 480px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+[class*="col-"] {
+  padding: 1rem;
+}
+
+.row::after {
+  content: "";
+  clear: both;
 }
