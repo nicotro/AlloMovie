@@ -1,26 +1,23 @@
+import { ReactComponent as AlloMovieLogo } from "./../assets/AlloMovielogo.svg";
+
 const NotFound = () => {
-  //const [page, setPage] = useState("1");
   return (
-    <>
-      <div className="searchBar">
-        <div className="body">
-          <div className="about-box">
-            <h1 className="about-title">404 - Page not found</h1>
-          </div>
-          <div className="about-box">
-            <p className="input">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              ad quidem minima voluptates, ullam debitis quaerat eum consequatur
-              sequi laborum, sint quo asperiores, magni et corrupti quis
-              doloribus reiciendis consequuntur obcaecati repudiandae voluptas
-              quod? Tempora minus, debitis a beatae architecto, error aspernatur
-              sequi officia corrupti minima reiciendis pariatur sint soluta.
-            </p>
-          </div>
-          <div className="about-box"></div>
-        </div>
+    <div className="notfound-body">
+      <div className="notfound-box">
+        <h1 className="notfound-title">404</h1>
+        <h2 className="notfound-subtitle">Page not found</h2>
       </div>
-    </>
+      <div className="notfound-box">
+        <div className="notfound-logo">
+          <AlloMovieLogo />
+        </div>
+        <p className="notfound-text">
+          <strong>What you are looking for is not here!</strong>
+          <br />
+          Use the main menu to reach the part of this site you wish to visit.
+        </p>
+      </div>
+    </div>
   );
 };
 

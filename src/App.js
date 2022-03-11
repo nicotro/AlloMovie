@@ -6,13 +6,12 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import About from "./pages/About";
 import NotFound from "./pages/404NotFound";
-import NavigationResponsive from "./components/NavigationResponsive";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <NavigationResponsive />
+      <Navigation />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Favorites" exact component={Favorites} />

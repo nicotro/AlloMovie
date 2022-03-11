@@ -1,0 +1,44 @@
+.notfound-body {
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound-box {
+  max-width: 75%;
+  min-height: 35%;
+  background-color: $color-2;
+  border-radius: 0.5rem;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 1rem;
+
+  .notfound-title {
+    margin: 0;
+    text-align: center;
+    color: $color-4;
+  }
+
+  .notfound-subtitle {
+    margin: 0;
+    text-align: center;
+    color: $color-3;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .notfound-logo {
+    max-width: 128px;
+    margin: 0 auto;
+    .svg {
+      max-width: 128px;
+      max-height: 128px;
+    }
+  }
+
+  .notfound-text {
+    margin: 1rem auto;
+    text-align: center;
+    color: $color-3;
+  }
+}

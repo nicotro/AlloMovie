@@ -1,17 +1,100 @@
-.about-box {
-  max-width: 100%;
-  min-height: 35%;
-  height: auto;
-  background-color: $color-2;
-  border-radius: 10px;
+.about-body {
+  min-height: 50vh;
+  align-items: center;
   justify-content: center;
-  margin: 1em;
-  padding: 1em;
+}
+
+.about-box {
+  max-width: 75%;
+  min-height: 35%;
+  background-color: $color-2;
+  border-radius: 0.5rem;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 1rem;
+
+  ul {
+    color: $color-4;
+    margin-left: 1rem;
+    list-style-position: inside;
+  }
+
+  li {
+    color: $color-3;
+    list-style-type: circle;
+    margin: 0.25rem 1.25rem 0 0;
+  }
+
+  a {
+    &:hover {
+      background-color: $color-3;
+      color: $color-2;
+    }
+  }
 }
 
 .about-title {
   margin: 0;
-  padding: 0 10px;
+  text-align: center;
+  color: $color-4;
+}
+
+.about-subtitle {
+  margin: 0;
   text-align: center;
   color: $color-3;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.about-text {
+  margin: 1rem;
+  text-align: justify;
+  color: $color-3;
+}
+
+.about-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 75%;
+  margin: 1rem auto;
+}
+
+.about-card {
+  height: 100%;
+  display: flex;
+  background-color: $color-2;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  transition: transform 0.3s ease;
+
+  .about-card-content {
+    padding: 1rem;
+  }
+
+  p {
+    text-align: justify;
+    margin: 1rem 0.25rem;
+  }
+
+  .about-card-text {
+    color: $color-6;
+    text-align: center;
+    margin: 1rem 0.25rem;
+  }
+}
+
+.about-card-link a.main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
 }
