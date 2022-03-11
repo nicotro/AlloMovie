@@ -26,7 +26,6 @@
   }
 
   a {
-    background-color: $color-1;
     &:hover {
       background-color: $color-3;
       color: $color-2;
@@ -64,20 +63,38 @@
 
 .about-card {
   height: 100%;
+  display: flex;
   background-color: $color-2;
   border-radius: 0.5rem;
   justify-content: center;
-  margin: 1rem auto;
+  align-items: center;
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
   }
   transition: transform 0.3s ease;
 
+  .about-card-content {
+    padding: 1rem;
+  }
+
   p {
     text-align: justify;
-    .card-title {
-      text-align: center;
-    }
+    margin: 1rem 0.25rem;
   }
+
+  .about-card-text {
+    color: $color-6;
+    text-align: center;
+    margin: 1rem 0.25rem;
+  }
+}
+
+.about-card-link a.main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: " ";
 }

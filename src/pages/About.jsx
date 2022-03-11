@@ -1,6 +1,6 @@
-import { ReactComponent as LogoReact } from "./../assets/logo.svg";
+import { ReactComponent as LogoReact } from "./../assets/React_logo.svg";
 import { ReactComponent as LogoTMDB } from "./../assets/TheMovieDB.svg";
-import LinkedInBadge from "./../components/LinkedInBadge";
+import { ReactComponent as AlloMovieLogo } from "./../assets/AlloMovielogo.svg";
 
 const About = () => {
   //const [page, setPage] = useState("1");
@@ -51,25 +51,49 @@ const About = () => {
       </div>
       <div className="about-row">
         <div className="col-4">
-          <div className=" about-card">
-            <LogoTMDB />
-            <p>
-              This product uses the TMDB API but is not endorsed or certified by
-              TMDB.
-            </p>
+          <div className="about-card about-card-link">
+            <div className="about-card-content">
+              <div className="about-card-logo">
+                <LogoTMDB />
+              </div>
+              <p>
+                This product uses the TMDB API but is not endorsed or certified
+                by TMDB.
+              </p>
+            </div>
+            <a
+              href="https://www.themoviedb.org/"
+              className="main"
+              target="blank"
+            ></a>
           </div>
         </div>
         <div className="col-4">
-          <div className=" about-card">
-            <LogoReact />
-            <p className="card-title">
-              Made with <strong>React 17.0.2</strong>
-            </p>
+          <div className="about-card about-card-link">
+            <div className="about-card-content">
+              <div className="about-card-logo">
+                <LogoReact />
+              </div>
+              <div className="about-card-text">
+                Made with <br />
+                <strong>React 17.0.2</strong>
+              </div>
+            </div>
+            <a href="https://reactjs.org/" className="main" target="blank"></a>
           </div>
         </div>
         <div className="col-4">
-          <div className=" about-card">
-            <LinkedInBadge />
+          <div className="about-card">
+            <div className="about-card-content">
+              <div className="about-card-logo">
+                <AlloMovieLogo />
+              </div>
+              <div className="about-card-text">
+                ++ Size test ++
+                <br />
+                LinkedIn & links placeholder
+              </div>
+            </div>
           </div>
         </div>
       </div>
