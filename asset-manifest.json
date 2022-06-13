@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/AlloMovie/static/css/main.af4b45a4.css",
-    "main.js": "/AlloMovie/static/js/main.dbc513a1.js",
+    "main.js": "/AlloMovie/static/js/main.2a11080d.js",
     "static/media/Roboto-Regular.ttf": "/AlloMovie/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Yellowtail-Regular.ttf": "/AlloMovie/static/media/Yellowtail-Regular.68015177cbf9575be4a4.ttf",
-    "static/media/React_logo.svg": "/AlloMovie/static/media/React_logo.f136e8252723cc0a6143b8d5efb1fa74.svg",
+    "static/media/React_logo.svg": "/AlloMovie/static/media/React_logo.7dcd83dd29dc3ccebdde9aaf3a987c0c.svg",
     "static/media/TheMovieDB.svg": "/AlloMovie/static/media/TheMovieDB.de1a664e8d0777ca4ddb2a5a298bcfb6.svg",
-    "static/media/AlloMovielogo.svg": "/AlloMovie/static/media/AlloMovielogo.b0a5d947d000f1075eb6a3d11bf22480.svg",
+    "static/media/AlloMovielogo.svg": "/AlloMovie/static/media/AlloMovielogo.3501769a7e7c06b9aa3f670e6fbdbfaa.svg",
     "index.html": "/AlloMovie/index.html",
     "static/media/favorite_border_black_24dp.svg": "/AlloMovie/static/media/favorite_border_black_24dp.51e4111663462bdc85460513f201588f.svg",
     "static/media/search_black_24dp.svg": "/AlloMovie/static/media/search_black_24dp.b1c93950c9522b2c8aeea6466803eee5.svg",
@@ -14,10 +14,10 @@
     "static/media/close_black_24dp.svg": "/AlloMovie/static/media/close_black_24dp.eeef4ae49042d05be01c2d5d7fb11c63.svg",
     "static/media/menu_black_24dp.svg": "/AlloMovie/static/media/menu_black_24dp.9dbc5a3a96ad85a57422263699b1695d.svg",
     "main.af4b45a4.css.map": "/AlloMovie/static/css/main.af4b45a4.css.map",
-    "main.dbc513a1.js.map": "/AlloMovie/static/js/main.dbc513a1.js.map"
+    "main.2a11080d.js.map": "/AlloMovie/static/js/main.2a11080d.js.map"
   },
   "entrypoints": [
     "static/css/main.af4b45a4.css",
-    "static/js/main.dbc513a1.js"
+    "static/js/main.2a11080d.js"
   ]
 }
