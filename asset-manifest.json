@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/AlloMovie/static/css/main.af4b45a4.css",
-    "main.js": "/AlloMovie/static/js/main.2a11080d.js",
+    "main.js": "/AlloMovie/static/js/main.c98516c1.js",
     "static/media/Roboto-Regular.ttf": "/AlloMovie/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Yellowtail-Regular.ttf": "/AlloMovie/static/media/Yellowtail-Regular.68015177cbf9575be4a4.ttf",
     "static/media/React_logo.svg": "/AlloMovie/static/media/React_logo.7dcd83dd29dc3ccebdde9aaf3a987c0c.svg",
@@ -14,10 +14,10 @@
     "static/media/close_black_24dp.svg": "/AlloMovie/static/media/close_black_24dp.eeef4ae49042d05be01c2d5d7fb11c63.svg",
     "static/media/menu_black_24dp.svg": "/AlloMovie/static/media/menu_black_24dp.9dbc5a3a96ad85a57422263699b1695d.svg",
     "main.af4b45a4.css.map": "/AlloMovie/static/css/main.af4b45a4.css.map",
-    "main.2a11080d.js.map": "/AlloMovie/static/js/main.2a11080d.js.map"
+    "main.c98516c1.js.map": "/AlloMovie/static/js/main.c98516c1.js.map"
   },
   "entrypoints": [
     "static/css/main.af4b45a4.css",
-    "static/js/main.2a11080d.js"
+    "static/js/main.c98516c1.js"
   ]
 }
