@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as MenuIcon } from "./../assets/menu_black_24dp.svg";
 
 export default function Navigation() {
@@ -30,9 +30,9 @@ export default function Navigation() {
   return (
     <div className="topnav">
       <div className="topnav-left">
-        <NavLink exact to="/" className="nav" activeClassName="">
+        <Link exact to="/" className="nav" activeClassName="">
           AlloMovie
-        </NavLink>
+        </Link>
       </div>
       <div className="topnav-right">
         <a className="icon" onClick={ToggleDisplayMenu}>
