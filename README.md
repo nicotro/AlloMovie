@@ -5,12 +5,12 @@
 Discover or search movies from the database, results can be saved as favorites (local storage).
 
 - Setup a new Git Account/Repository
-- Teamed up with Thanawan
+- Team up with [Thanawan](https://github.com/thanawanrimond)
 - Learning React & JS (+scss along the way)
 - Responsive design
 - Project bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-Current status = functionnal website, needs adjustments:  
+Current status = functionnal web-app, needs adjustments:  
 - Favorites pagination & management
 - movie details
 - about page
