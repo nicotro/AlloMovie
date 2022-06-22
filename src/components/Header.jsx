@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BASE_IMAGE_URL } from "../APIconfig";
-import ApiGetMovies from "./ApiGetMovies";
+import { API_KEY, BASE_API_URL } from "../APIconfig";
 
 const Header = () => {
-  const [data, setData] = useState([]);
   const [movie, setMovie] = useState([]);
   const [backdropUrl, setBackdropUrl] = useState("");
-
+  const [loaded, setLoaded] = useState(false);
+  
+  useEffect(() => {
+    GetPopularMovies();
+  }, [loaded]);  
+  
   function GetMovieInfo(data) {
     const randomMovie = data[Math.floor(Math.random() * data.length)];
     setMovie(randomMovie);
@@ -14,27 +18,50 @@ const Header = () => {
     setBackdropUrl(backdropUrl);
   }
 
-  const moviesFromApi = (childData) => {
-    setData(childData);
-    if (childData.length > 0) GetMovieInfo(childData);
-  };
+
+  const GetPopularMovies = async () => {
+    const url =
+      BASE_API_URL +
+      "movie/popular?api_key=" +
+      API_KEY +
+      "&language=en-US&page=1&region=FR";
+    const response = await fetch(url);
+    const responseJson = await response.json();
+    
+    if (responseJson.results) {
+      //console.log(responseJson.results);
+      await GetMovieInfo(responseJson.results);
+      setLoaded(true);
+    }
+  }
 
   return (
     <>
-      <ApiGetMovies searchText="" resPage="1" moviesData={moviesFromApi} />
-      <div
-        className="header-img"
-        style={{
-          backgroundImage: 'url("' + backdropUrl + '")',
-        }}
-      >
-        <div className="header-img-info-text">
-          <div className="header-img-info">
-            <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
-          </div>
-        </div>
-      </div>
+      {
+        loaded
+          ?
+          (
+            <>
+              <div
+                className="header-img"
+                style={{
+                  backgroundImage: 'url("' + backdropUrl + '")',
+                }}
+              >
+                <div className="header-img-info-text">
+                  <div className="header-img-info">
+                    <h1>{movie.title}</h1>
+                    <p>{movie.overview}</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          )
+          :
+          <h2>
+            loading...
+          </h2>
+      }
     </>
   );
 };
